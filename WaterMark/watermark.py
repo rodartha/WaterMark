@@ -25,12 +25,12 @@ def watermark_image_f(filename, watermark, color, font):
 	img = Image.open(filename)
 	width, height = img.size
 	if width < 100 or height < 20:
-		raise("This image is too small must be at least 100x20")
+		raise("This image is too small must be at least {}x20".format(7.8 * len(watermark)))
 	draw = ImageDraw.Draw(img)
 	draw.text((width - (7.8 * len(watermark)),height - 20), watermark, color, font=font)
 	img.save(output_file)
 
-def watermark_folder(folder, watermark, color, font_file="Roboto-Medium.ttf"):
+def batch_watermark(folder, watermark, color, font_file="Roboto-Medium.ttf"):
 	font = ImageFont.truetype(font_file, 16)
 	prev_dir = os.getcwd()
 	os.chdir(folder)
