@@ -12,6 +12,6 @@ setup(
     packages=['WaterMark'],
     include_package_data=True,
     install_requires=[
-        'Pillow==6.2.1',
+        'Pillow==10.0.1',
     ],
 )
